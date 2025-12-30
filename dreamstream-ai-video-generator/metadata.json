@@ -1,0 +1,5 @@
+{
+  "name": "DreamStream AI Video Generator",
+  "description": "Transform your creative prompts into high-quality cinematic videos using Gemini's advanced Veo models. Customize aspect ratios and resolutions to bring your imagination to life.",
+  "requestFramePermissions": []
+}
