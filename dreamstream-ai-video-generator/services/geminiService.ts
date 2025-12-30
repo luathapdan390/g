@@ -3,7 +3,7 @@ import { GoogleGenAI } from "@google/genai";
 import { VideoGenerationConfig } from "../types";
 
 export const generateVideo = async (config: VideoGenerationConfig): Promise<string> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
   
   try {
     let operation = await ai.models.generateVideos({
@@ -33,7 +33,7 @@ export const generateVideo = async (config: VideoGenerationConfig): Promise<stri
     const downloadLink = operation.response.generatedVideos[0].video.uri;
     
     // Fetch the video data as a blob because the direct link might require authentication/API key
-    const response = await fetch(`${downloadLink}&key=${process.env.API_KEY}`);
+    const response = await fetch(`${downloadLink}&key=${process.env.GEMINI_API_KEY}`);
     if (!response.ok) {
       throw new Error(`Failed to download video: ${response.statusText}`);
     }
